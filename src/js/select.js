@@ -223,7 +223,11 @@ class Select extends Evented {
     });
 
     this.content = document.createElement('div');
-    addClass(this.content, 'select-content');
+    if (this.options.copyTargetWidth) {
+      this.content.style.width = `${this.target.offsetWidth}px`;
+    }
+    
+    addClass(this.content, 'select-content');    
     this.drop.appendChild(this.content);
   }
 
